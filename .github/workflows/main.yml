@@ -18,6 +18,8 @@ jobs:
 
     - name: Install Dependencies
       run: npm install neo4j-driver
+    - name: List Directory Contents
+      run: ls -R
 
     - name: Run Script
       run: node .github/scripts/connect-to-neo4j.js
