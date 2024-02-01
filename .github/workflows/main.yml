@@ -20,7 +20,7 @@ jobs:
       run: npm install neo4j-driver
 
     - name: Run Script
-      run: node .github/scripts/connect-to-neo4j.js
+      run: node connect-to-neo4j.js
       env:
         NEO4J_URI: ${{ secrets.NEO4J_URI }}
         NEO4J_USER: ${{ secrets.NEO4J_USER }}
