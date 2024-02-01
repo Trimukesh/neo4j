@@ -1,0 +1,27 @@
+name: Neo4j Connection
+
+on:
+  workflow_dispatch:
+
+jobs:
+  connect-to-neo4j:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set Up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install Dependencies
+      run: npm install neo4j-driver
+
+    - name: Run Script
+      run: node .github/scripts/connect-to-neo4j.js
+      env:
+        NEO4J_URI: ${{ secrets.NEO4J_URI }}
+        NEO4J_USER: ${{ secrets.NEO4J_USER }}
+        NEO4J_PASSWORD: ${{ secrets.NEO4J_PASSWORD }}
